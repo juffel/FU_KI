@@ -46,12 +46,36 @@ parents(zeus,semele,dionysos).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % family structure definitions
-parent(X,Y) :- parents(X,_,Y);parents(_,X,Y).
-father(X,Y) :- parent(X,Y),male(X).
-mother(X,Y) :- parent(X,Y),female(X).
+parent(X,Y) :- 
+	parents(X,_,Y);parents(_,X,Y).
+father(X,Y) :- 
+	parent(X,Y),male(X).
+mother(X,Y) :- 
+	parent(X,Y),female(X).
 
 % two individuals are considered siblings if they share at least a parent
-sibling(X,Y) :- parent(Z,X),parent(Z,Y).
+sibling(X,Y) :- 
+	parent(Z,X),parent(Z,Y).
+brother(X,Y) :-
+	sibling(X,Y), male(X).
+sister(X,Y) :-
+	sibling(X,Y), female(X).
+
+% an individual is considered a grandparent of another if it is a parent of a parent of that individual
+
+grandparent(X,Y) :-
+	parent(X,Z), parent(Z,Y).
+
+grandfather(X,Y) :-
+	grandparent(X,Y), male(X).
+
+grandmother(X,Y) :-
+	grandparent(X,Y), female(X).
+
 
 % TODO ancestor, predecessor
+% not working yet
 
+predecessor(X,Y) :-
+	parent(X,Y);
+	predecessor(X,parent(Y)).
