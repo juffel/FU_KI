@@ -3,12 +3,15 @@
 %%%%%%%%%%%%%
 % individuals
 zeus.
+
 hades.
 poseidon.
 demeter.
 hestia.
-
 ares.
+
+kronos.
+rhea.
 
 %%%%%
 % sex
@@ -16,9 +19,11 @@ male(zeus).
 male(hades).
 male(poseidon).
 male(ares).
+male(kronos).
 female(demeter).
 female(hestia).
 female(hera).
+female(rhea).
 
 %%%%%%%%%%%%%%%%
 % zeus' siblings
@@ -43,6 +48,10 @@ parents(zeus,dione,aphrodite).
 % zeus' mortal inseminations
 parents(zeus,alkmene,herakles).
 parents(zeus,semele,dionysos).
+
+%%%%%%%%%%%%%%%
+% zeus' parents
+parents(kronos, rhea, zeus).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % family structure definitions
