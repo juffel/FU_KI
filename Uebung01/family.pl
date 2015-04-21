@@ -1,5 +1,5 @@
 % family tree prolog exercise
-% disclaimer: the relations between the following individuals are considered on a purely biological basis 
+% disclaimer: the relations between the following individuals are considered on a purely biological basis
 %%%%%%%%%%%%%
 % individuals
 zeus.
@@ -55,15 +55,15 @@ parents(kronos, rhea, zeus).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % family structure definitions
-parent(X,Y) :- 
+parent(X,Y) :-
 	parents(X,_,Y);parents(_,X,Y).
-father(X,Y) :- 
+father(X,Y) :-
 	parent(X,Y),male(X).
-mother(X,Y) :- 
+mother(X,Y) :-
 	parent(X,Y),female(X).
 
 % two individuals are considered siblings if they share at least a parent
-sibling(X,Y) :- 
+sibling(X,Y) :-
 	parent(Z,X),parent(Z,Y).
 brother(X,Y) :-
 	sibling(X,Y), male(X).
@@ -82,9 +82,17 @@ grandmother(X,Y) :-
 	grandparent(X,Y), female(X).
 
 
-% TODO ancestor, predecessor
-% not working yet
+predecessor(X,Y) :-
+	parent(X,Y).
 
 predecessor(X,Y) :-
-	parent(X,Y);
-	predecessor(X,parent(Y)).
+  parent(X, Z),
+  predecessor(Z, Y).
+
+
+successor(X,Y) :-
+  parent(Y,X).
+
+successor(X,Y) :-
+  parent(Y,Z),
+  successor(X,Z).
