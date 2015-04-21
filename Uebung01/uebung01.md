@@ -5,7 +5,10 @@ Kai Kruschel
 ## Aufgabe 1
 --- Code ---
 
-## Aufgabe 2 The Chinese Room Thought Experiment
+## Aufgabe 2
+### The Chinese Room Thought Experiment
+Quelle: [www-formal.stanford.edu/jmc/chinese.html]()
+
 Das Chinese Room Gedankenexperiment versucht die Frage, inwiefern ein [Computer-]Programm als intelligent zu betrachten ist, in einem Bild darzustellen.
 Das Experiment ist folgendermaßen beschrieben:
 
@@ -14,4 +17,6 @@ Das Experiment ist folgendermaßen beschrieben:
 Dadurch kann von außen der Eindruck entstehen, dass sich im Inneren eine Entität befindet, welche *intelligent* auf die Anfragen von außen antwortet. Gleichzeitig verfügt der Akteur im Inneren jedoch keinerlei Kenntnis über den Verlauf [der Kommunikation|des Gesprächs] und trägt auch nicht zu dessen Verlauf bei.
 
 ## Aufgabe 3
+### Strong AI vs. Weak AI
+TODO
 
