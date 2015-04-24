@@ -7,5 +7,5 @@ myLast([ _ | Rest], LastItem) :-
 myMax([], _).
 
 myMax([Item | Rest], MaxItem) :-
-   MaxItem > Item;
+   Item =< MaxItem,
    myMax(Rest, MaxItem).
