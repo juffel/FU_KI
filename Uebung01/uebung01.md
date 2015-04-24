@@ -3,7 +3,7 @@ Julian Dobmann
 Kai Kruschel
 
 ## Aufgabe 1
---- Code ---
+--- Code siehe angehängte .pl Datei ---
 
 ## Aufgabe 2
 ### The Chinese Room Thought Experiment
@@ -15,6 +15,10 @@ Das Experiment ist folgendermaßen beschrieben:
 *Ein **Akteur** befindet sich in einem Raum, welcher - bis auf einen kleinen Papierschlitz - von der Außenwelt abgeriegelt ist. Durch diesen Papierschlitz werden dem Akteur immer wieder Zettel zugestellt, deren Inhalt der Akteur nicht verstehen kann [weil darauf lediglich chinesische Schriftzeichen abgebildet sind]. Der Akteur verfügt jedoch über ein Key-Value Verzeichnis, in welchem die Inhalte der eingehenden Zettel als Keys vermerkt sind. Der Akteur vergleicht nach Erhalt eines Zettels den Inhalt mit den Key-Einträgen im Verzeichnis und gibt daraufhin einen Zettel mit dem Inhalt des zugehörigen Values nach außen zurück.*
 
 Dadurch kann von außen der Eindruck entstehen, dass sich im Inneren eine Entität befindet, welche *intelligent* auf die Anfragen von außen antwortet. Gleichzeitig verfügt der Akteur im Inneren jedoch keinerlei Kenntnis über den Verlauf [der Kommunikation|des Gesprächs] und trägt auch nicht zu dessen Verlauf bei.
+
+Ein *Gegenargument* zur Verwendung dieser Betrachtungsweise für die Einstufung von intelligentem Verhalten, ist dass es einen Einblick in das Systeminnere voraussetzt, über welches Bewertungen bzg. Intelligenz getroffen werden. Da die Diskussion um Intelligenz in der Regel von den Fähigkeiten des menschlichen Gehirns ausgeht, setzt die Anwendung des Modells konsequenterweise voraus, dass ausreichende Kenntisse über die Vorgänge im menschlichen Gehirn bekannt sind, was zum heutigen Stand der Forschung nur bedingt der Fall ist.
+
+Persönlich halte ich den Ansatz das einzustufende System nur durch eine klar definierte Schnittstelle von außen zu betrachten für sinnvoller bzw. brauchbarer. Auch die uneindeutigkeit des Intelligenbegriffs sollte bei solchen Überlegungen immer beachtet werden.
 
 ## Aufgabe 3
 ### Strong AI vs. Weak AI
