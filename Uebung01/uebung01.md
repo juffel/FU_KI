@@ -18,5 +18,16 @@ Dadurch kann von außen der Eindruck entstehen, dass sich im Inneren eine Entit�
 
 ## Aufgabe 3
 ### Strong AI vs. Weak AI
-TODO
+
+#### Starke KI
+Starke KI ist "echte" KI, also der Versuch, eine Intelligenz zu schaffen die nicht mehr von der des Menschen unterscheidbar ist. Es wurden mehrere Tests vorgeschlagen, wie zum Beispiel der Turing-Test, um zu bestimmen, ob es sich tatsächlich um eine starke KI handelt. Da die Anforderungen und die Definition sich aber mit der Zeit geändert haben und sich viele Tests als zu einfach erwiesen haben, gibt es bis jetzt keine KI die im allgemeinen als stark bezeichnet wird. Einige aktuelle Anforderungen an eine starke KI sind: 
+-Die Fähigkeit, natürliche Sprache zu verstehen
+-Die Fähigkeit, zu lernen
+-Die Fähigkeit, allgemeine Probleme zu lösen
+
+#### Schwache KI
+Der Begriff der Schwachen KI umfasst spezialisierte Systeme, die eine bestimmte Aufgabe auf mehr oder weniger intelligente Weise ausführen können. 
+Das beinhaltet zum Beispiel Machine Learning für spezifische Anwendungen, Mustererkennung oder Expertensysteme. Der große  Unterschied zur starken KI ist dabei, dass diese Systeme nur die Aufgaben ausführen können, für die sie konzipiert wurden. 
+
+
 
