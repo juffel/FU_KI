@@ -4,14 +4,57 @@
 % Garfield is a cat. Odie is a dog. Cats and dogs are animals. Jon is a human. Every animal has a human owner. Jon is the owner of Garfield and Odie. Garfield and Odie are the only animals that Jon owns. If a cat is chased by a dog, then the owner of the cat hates the owner of the dog. Odie has chased Garfield. Conjecture:Jon hates himself.
 
 % Garfield is a cat
+fof(a0,axiom,
+    (cat(garfield))).
+
 % Odie is a dog
+fof(a1,axiom,
+    (dog(odie))).
+
 % Cats and dogs are animals
+fof(a2,axiom,
+    ( ! [X]:
+        cat(X) => animal(X))).
+fof(a3,axiom,
+    ( ! [X]:
+        dog(X) => animal(X))).
+
 % Jon is a human
+fof(a4,axiom,
+    (human(jon))).
+
 % Every animal has a human owner
+fof(a5,axiom,
+    ( ! [X]:
+        animal(X) => ? [Y]:
+            is_owner_of(Y,X))).
+
 % Jon is the owner of Garfield and Odie
+fof(a6,axiom,
+    (is_owner_of(jon,garfield))).
+fof(a7,axiom,
+    (is_owner_of(jon,odie))).
+
 % Garfield and Odie are the only animals that Jon owns
+fof(a8,axiom,
+    ( ! [X]:
+        (is_owner_of(jon,X)
+            => ( X = odie
+               | X = garfield)))).
+
 % If a cat is chased by a dog, then the owner of the cat hates the owner of the dog
+fof(a9,axiom,
+    ( ! [X,Y]:
+        (cat(X) & dog(Y) & chased(Y,X))
+            => (! [Q,P]:
+                (is_owner_of(Q,X) & is_owner_of(P,Y))
+                    => hates(Q,P)))).
+
 % Odie has chased Garfield
+fof(a10,axiom,
+    (chased(odie,garfield))).
 
 % Conjecture:Jon hates himself
+fof(c0, conjecture,
+    (hates(jon,jon))).
 
