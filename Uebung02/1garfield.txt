@@ -1,0 +1,17 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Aufgabe 1b)
+% Garfield is a cat. Odie is a dog. Cats and dogs are animals. Jon is a human. Every animal has a human owner. Jon is the owner of Garfield and Odie. Garfield and Odie are the only animals that Jon owns. If a cat is chased by a dog, then the owner of the cat hates the owner of the dog. Odie has chased Garfield. Conjecture:Jon hates himself.
+
+% Garfield is a cat
+% Odie is a dog
+% Cats and dogs are animals
+% Jon is a human
+% Every animal has a human owner
+% Jon is the owner of Garfield and Odie
+% Garfield and Odie are the only animals that Jon owns
+% If a cat is chased by a dog, then the owner of the cat hates the owner of the dog
+% Odie has chased Garfield
+
+% Conjecture:Jon hates himself
+

@@ -1,0 +1,28 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Aufgabe 1a)
+% If you work hard then you get lucky
+fof(a0,axiom,
+    ( ! [X]:
+        (works_hard(X)
+        => gets_lucky(X)))).
+
+% Either you get lucky or you work hard, or both
+fof(a1,axiom,
+    ( ! [X]:
+        (gets_lucky(X) | works_hard(X)))).
+
+% If you get lucky then, either you are not a rogue or you work hard (but not both)
+fof(a2, axiom,
+    ( ! [X]:
+        gets_lucky(X) =>
+            (~rogue(X) <~> works_hard(X)))).
+
+% You are a rogue
+fof(a3, axiom,
+    (rogue(me))).
+
+% Conjecture: You work hard
+fof(c0, conjecture,
+    (works_hard(me))).
+
