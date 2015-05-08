@@ -64,6 +64,8 @@ mother(X,Y) :-
 
 % two individuals are considered siblings if they share at least a parent
 sibling(X,Y) :-
+    % Korrektur: es fehlt der Ausschluss des Falls X==Y:
+    % X \= Y,
 	parent(Z,X),parent(Z,Y).
 brother(X,Y) :-
 	sibling(X,Y), male(X).
