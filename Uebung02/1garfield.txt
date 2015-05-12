@@ -3,6 +3,10 @@
 % Aufgabe 1b)
 % Garfield is a cat. Odie is a dog. Cats and dogs are animals. Jon is a human. Every animal has a human owner. Jon is the owner of Garfield and Odie. Garfield and Odie are the only animals that Jon owns. If a cat is chased by a dog, then the owner of the cat hates the owner of the dog. Odie has chased Garfield. Conjecture:Jon hates himself.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Aufgabe 1b)
+% Garfield is a cat. Odie is a dog. Cats and dogs are animals. Jon is a human. Every animal has a human owner. Jon is the owner of Garfield and Odie. Garfield and Odie are the only animals that Jon owns. If a cat is chased by a dog, then the owner of the cat hates the owner of the dog. Odie has chased Garfield. Conjecture:Jon hates himself.
+
 % Garfield is a cat
 fof(a0,axiom,
     (cat(garfield))).
@@ -45,16 +49,16 @@ fof(a8,axiom,
 % If a cat is chased by a dog, then the owner of the cat hates the owner of the dog
 fof(a9,axiom,
     ( ! [X,Y]:
-        (cat(X) & dog(Y) & chased(Y,X))
+        (cat(X) & dog(Y) & chases(Y,X))
             => (! [Q,P]:
                 (is_owner_of(Q,X) & is_owner_of(P,Y))
                     => hates(Q,P)))).
 
-% Odie has chased Garfield
+% Odie chases Garfield
 fof(a10,axiom,
-    (chased(odie,garfield))).
+    (chases(odie,garfield))).
 
-% Conjecture:Jon hates himself
+% Conjecture: Jon hates himself
 fof(c0, conjecture,
     (hates(jon,jon))).
 
