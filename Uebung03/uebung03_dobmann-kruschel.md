@@ -72,6 +72,56 @@ $$ K = p \wedge q $$
 
 Für die Belegung $$ p = 0, q = 1 $$ entsteht die Auswertung $$ A=1, K=0 $$ was dazu führt, dass hier $$ A \Rightarrow K $$ nicht gilt.
 
+## Aufgabe 2
+
+### a)
+
+zu zeigen als Wahrheitstabelle: $$(p \wedge q \wedge r) \Rightarrow c
+
+$$p$$ | $$q$$ | $$r$$ | $$(p \wedge q \wedge r)$$ | $$c$$ | $$(p \wedge q \wedge r) \Rightarrow c$$
+:-:|:-:|:-:|:-:|:-:|:-:
+ 0 | 0 | 0 | 0 | 0 | 1
+ 0 | 0 | 0 | 0 | 1 | 1
+ 0 | 0 | 1 | 0 | 0 | 1
+ 0 | 0 | 1 | 0 | 1 | 1
+ 0 | 1 | 0 | 0 | 0 | 1
+ 0 | 1 | 0 | 0 | 1 | 1
+ 0 | 1 | 1 | 0 | 0 | 1
+ 0 | 1 | 1 | 0 | 1 | 1
+ 1 | 0 | 0 | 0 | 0 | 1
+ 1 | 0 | 0 | 0 | 1 | 1
+ 1 | 0 | 1 | 0 | 0 | 1
+ 1 | 0 | 1 | 0 | 1 | 1
+ 1 | 1 | 0 | 0 | 0 | 1
+ 1 | 1 | 0 | 0 | 1 | 1
+ 1 | 1 | 1 | 1 | 0 | 0
+ 1 | 1 | 1 | 1 | 1 | 1
+
+### b)
+
+| p | q | r | \not p | \not q | \not r | c | c \vee \not p \vee \not q \vee \not r |
+|---|---|---|--------|--------|--------|---|---------------------------------------|
+| 0 | 0 | 0 | 1      | 1      | 1      | 0 |                                       |
+| 0 | 0 | 0 | 1      | 1      | 1      | 1 | 1                                     |
+| 0 | 0 | 1 | 1      | 1      | 0      | 0 | 1                                     |
+| 0 | 0 | 1 | 1      | 1      | 0      | 1 | 1                                     |
+| 0 | 1 | 0 | 1      | 0      | 1      | 0 | 1                                     |
+| 0 | 1 | 0 | 1      | 0      | 1      | 1 | 1                                     |
+| 0 | 1 | 1 | 1      | 0      | 0      | 0 | 1                                     |
+| 0 | 1 | 1 | 1      | 0      | 0      | 1 | 1                                     |
+| 1 | 0 | 0 | 0      | 1      | 1      | 0 | 1                                     |
+| 1 | 0 | 0 | 0      | 1      | 1      | 1 | 1                                     |
+| 1 | 0 | 1 | 0      | 1      | 0      | 0 | 1                                     |
+| 1 | 0 | 1 | 0      | 1      | 0      | 1 | 1                                     |
+| 1 | 1 | 0 | 0      | 0      | 1      | 0 | 1                                     |
+| 1 | 1 | 0 | 0      | 0      | 1      | 1 | 1                                     |
+| 1 | 1 | 1 | 0      | 0      | 0      | 0 | 0                                     |
+| 1 | 1 | 1 | 0      | 0      | 0      | 1 | 1                                     |
+
+
+es fällt auf, dass bei gleicher Belegung von p, q, r und c der Term das gleiche Ergebnis liefert, wie in a)
+
+
 
 ## Aufgabe 3
 ### a)
@@ -94,7 +144,9 @@ $$ W_3 $$: Der Wolf ist satt
 $$ B $$: Borsti wird gefressen
 
 ### b)
-**Aufgabenstellung:** *Angenommen, in der Stadt ist Kirmes. Wird Borsti nicht gefressen, wenn das Wetter imSommer gut und der Händler ehrlich waren? Formulieren Sie diese Frage alsUnerfüllbarkeitsproblem einer Menge von Hornklauseln und lösen Sie sie mit SLD-­Resolution.*
+**Aufgabenstellung:** *Angenommen, in der Stadt ist Kirmes. Wird Borsti nicht gefressen, wenn das Wetter im
+Sommer gut und der Händler ehrlich waren? Formulieren Sie diese Frage als
+Unerfüllbarkeitsproblem einer Menge von Hornklauseln und lösen Sie sie mit SLD-­Resolution.*
 
 gegebene Horn-Klauselmenge:
 
