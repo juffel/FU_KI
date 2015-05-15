@@ -167,4 +167,18 @@ Frage:
 
 $$ \neg B $$
 
+Lösung durch SLD-Resolution:
+
+$$ \frac{(\neg S, \neg W_1, G) \ \ \ \ \ (\neg G, W_2)}{(\neg S, \neg W_1, W_2)} $$
+
+$$ \frac{(\neg S, \neg W_1, W_2) \ \ \ \ \ (\neg W_2, \neg K, A)}{(\neg S, \neg W_1, \neg K, A)} $$
+
+$$ \frac{(\neg S, \neg W_1, \neg K, A) \ \ \ \ \ (\neg H, S)}{(\neg H, \neg W_1, \neg K, A)} $$
+
+$$ \frac{(\neg H, \neg W_1, \neg K, A) \ \ \ \ \ (K)}{(\neg H, \neg W_1, A)} $$
+
+$$ \frac{(\neg H, \neg W_1, A) \ \ \ \ \ (W_1)}{(\neg H, A)} $$
+
+$$ \frac{(\neg H, A) \ \ \ \ \ (H)}{(A)} $$
+
 ### c)
