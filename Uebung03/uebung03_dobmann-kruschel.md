@@ -76,7 +76,7 @@ Für die Belegung $$ p = 0, q = 1 $$ entsteht die Auswertung $$ A=1, K=0 $$ was 
 
 ### a)
 
-zu zeigen als Wahrheitstabelle: $$(p \wedge q \wedge r) \Rightarrow c
+zu zeigen als Wahrheitstabelle: $$(p \wedge q \wedge r) \Rightarrow c$$
 
 $$p$$ | $$q$$ | $$r$$ | $$(p \wedge q \wedge r)$$ | $$c$$ | $$(p \wedge q \wedge r) \Rightarrow c$$
 :-:|:-:|:-:|:-:|:-:|:-:
@@ -99,24 +99,24 @@ $$p$$ | $$q$$ | $$r$$ | $$(p \wedge q \wedge r)$$ | $$c$$ | $$(p \wedge q \wedge
 
 ### b)
 
-| p | q | r | \not p | \not q | \not r | c | c \vee \not p \vee \not q \vee \not r |
-|---|---|---|--------|--------|--------|---|---------------------------------------|
-| 0 | 0 | 0 | 1      | 1      | 1      | 0 |                                       |
-| 0 | 0 | 0 | 1      | 1      | 1      | 1 | 1                                     |
-| 0 | 0 | 1 | 1      | 1      | 0      | 0 | 1                                     |
-| 0 | 0 | 1 | 1      | 1      | 0      | 1 | 1                                     |
-| 0 | 1 | 0 | 1      | 0      | 1      | 0 | 1                                     |
-| 0 | 1 | 0 | 1      | 0      | 1      | 1 | 1                                     |
-| 0 | 1 | 1 | 1      | 0      | 0      | 0 | 1                                     |
-| 0 | 1 | 1 | 1      | 0      | 0      | 1 | 1                                     |
-| 1 | 0 | 0 | 0      | 1      | 1      | 0 | 1                                     |
-| 1 | 0 | 0 | 0      | 1      | 1      | 1 | 1                                     |
-| 1 | 0 | 1 | 0      | 1      | 0      | 0 | 1                                     |
-| 1 | 0 | 1 | 0      | 1      | 0      | 1 | 1                                     |
-| 1 | 1 | 0 | 0      | 0      | 1      | 0 | 1                                     |
-| 1 | 1 | 0 | 0      | 0      | 1      | 1 | 1                                     |
-| 1 | 1 | 1 | 0      | 0      | 0      | 0 | 0                                     |
-| 1 | 1 | 1 | 0      | 0      | 0      | 1 | 1                                     |
+| $$p$$ | $$q$$ | $$r$$ | $$\neg p$$ | $$\neg q$$ | $$\neg r$$ | $$c$$ | $$c \vee \neg p \vee \neg q \vee \neg r$$ |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 1 | 1 | 1 | 0 | 1 |
+| 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 0 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 1 | 1 | 0 | 1 |
+| 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 0 | 1 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 0 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 1 | 0 | 0 | 0 | 1 | 1 |
 
 
 es fällt auf, dass bei gleicher Belegung von p, q, r und c der Term das gleiche Ergebnis liefert, wie in a)
@@ -148,7 +148,12 @@ $$ B $$: Borsti wird gefressen
 Sommer gut und der Händler ehrlich waren? Formulieren Sie diese Frage als
 Unerfüllbarkeitsproblem einer Menge von Hornklauseln und lösen Sie sie mit SLD-­Resolution.*
 
-gegebene Horn-Klauselmenge:
+Fakten:
+In der Stadt is Kirmes, das Wetter ist gut und der Händler ist ehrlich:
+
+$$ K, W_1, H $$
+
+Regeln:
 
 $$ (\neg H, S) $$,
 $$ (\neg S, \neg W_1, G) $$,
@@ -157,11 +162,6 @@ $$ (\neg W_2, \neg K, A) $$,
 $$ (\neg W_2, W_3) $$,
 $$ (\neg W_3, \neg B) $$,
 $$ (A, \neg B) $$
-
-Annahmen:
-In der Stadt is Kirmes, das Wetter ist gut und der Händler ist ehrlich:
-
-$$ K, W_1, H $$
 
 Frage:
 
