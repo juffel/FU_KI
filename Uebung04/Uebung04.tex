@@ -1,0 +1,125 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\section*{Aufgabe 1}
+	\subsection*{a) $\forall Z \exists Y \forall X (f(X, Y))\Leftrightarrow (f(X, Z) \wedge \neg f(X, X)) $}
+	Äquivalenz in zwei Implikationen umformen:
+	\begin{gather*}
+		\forall Z \exists Y \forall X ((f(X, Y) \Rightarrow (f(X,Z) \wedge \neg f(X, X))) \\ \wedge 
+		(f(X,Z) \wedge \neg f(X, X)) \Rightarrow f(X, Y))
+	\end{gather*}
+	Implikationen in Disjunktionen umformen:
+	\begin{gather*}
+		\forall Z \exists Y \forall X (\neg f(X, Y) \vee (f(X,Z) \wedge \neg f(X, X))) \\ 
+		\wedge 
+		\neg (f(X,Z) \wedge \neg f(X, X)) \vee f(X, Y))
+	\end{gather*}
+	Negation in der zweiten Zeile auflösen:
+	\begin{gather*}
+		\forall Z \exists Y \forall X (\neg f(X, Y) \vee (f(X,Z)
+		\wedge \neg f(X, X)) 
+		\\ \wedge 
+		(\neg f(X,Z) \vee f(X, X) \vee f(X, Y)))
+	\end{gather*}	
+	erste Zeile aufteilen in Konjunktion von zwei Disjunktionen:
+	\begin{gather*}
+		\forall Z \exists Y \forall X 
+		((\neg f(X, Y) \vee (f(X,Z)) \\
+		\wedge (\neg f(X, Y) \vee \neg f(X, X))) \\  
+		\wedge 
+		(\neg f(X,Z) \vee f(X, X) \vee f(X, Y)))
+	\end{gather*}
+	Skolemisieren, so dass $\exists Y \equiv skY(Z)$:
+	\begin{gather*}
+		(\neg f(X, skY(Z)) \vee f(X,Z)) \\
+		\wedge (\neg f(X, skY(Z)) \vee \neg f(X, X)) \\  
+		\wedge 
+		(\neg f(X,Z) \vee f(X, X) \vee f(X, skY(Z)))
+	\end{gather*}
+	schließlich bringen wir das ganze in die Mengenschreibweise der KNF:\\
+	\{$\neg f(X, skY(Z)) \vee f(X,Z)$, $\neg f(X, skY(Z)) \vee \neg f(X, X)$, $\neg f(X,Z) \vee f(X, X) \vee f(X, skY(Z))$\}
+	
+	
+	\subsection*{b)$ \forall X \forall Y (q(X, Y)) \Leftrightarrow \forall Z (f(Z, X) \Leftrightarrow f(Z, Y))$}
+	aufteilen:
+	\begin{gather*}
+		\forall X \forall Y (q(X, Y)) \Leftrightarrow \forall Z (f(Z, X)) \\
+		\forall Z (f(Z, X))	\Leftrightarrow f(Z, Y)
+	\end{gather*}
+	
+	\subsection*{c) $\forall X \exists Y((p(X, Y)\Leftarrow \forall X \exists T q(Y, X, T))\Rightarrow r(Y)$} 
+	aufteilen:
+	\begin{gather*}
+		\forall X \exists Y(\forall X \exists T q(Y, X, T))\Rightarrow r(Y) \\ 
+		\wedge 
+		(\forall X \exists T q(Y, X, T) \Rightarrow p(X, Y))
+	\end{gather*}
+	in Disjunktionen umwandeln:
+	\begin{gather*}
+		\forall X \exists Y(\neg(\forall X \exists T q(Y, X, T))) \vee r(Y) \\ 
+		\wedge 
+		(\neg(\forall X \exists T q(Y, X, T))\vee p(X, Y))
+	\end{gather*}	
+	Quantoren nach außen ziehen:
+	\begin{gather*}
+		\forall X \exists Y((\exists X \forall T (\neg q(Y, X, T) \vee r(Y)) \\ 
+		\wedge 
+		(\exists X \forall T (\neg q(Y, X, T)\vee p(X, Y)))
+	\end{gather*}	
+	
+	d)
+	
+\section*{Aufgabe 3}
+
+\subsection*{gegeben}
+$$V=\{X,Y\}$$
+$$F=\{vater\_von/1, mutter\_von/, max/0\}$$
+$$P=\{verheiratet/2\}$$
+
+\subsection*{gesucht}
+\subsubsection*{Herbrand Universum}
+\begin{align*}
+max, \\ vater\_von(max), \\ vater\_von(vater\_von(max)) \\ ...\\
+mutter\_von(max), \\ mutter\_von(mutter\_von(max)) \\ ... \\
+vater\_von(mutter\_von(max)), \\
+vater\_von(vater\_von(mutter\_von(max))), \\
+mutter\_von(vater\_von(max)), \\
+mutter\_von(vater\_von(vater\_von(max))), \\
+... \\
+mutter\_von(vater\_von(mutter\_von(vater\_von(mutter\_von(...)))))
+\end{align*}
+
+\subsubsection*{Herbrand Basis}
+\begin{align*}
+verheiratet(max, vater\_von(max)), \\
+verheiratet(max, mutter\_von(max)), \\
+verheiratet(vater\_von(max), mutter\_von(max)),\\
+verheiratet(vater\_von(vater\_von(max)), mutter\_von(vater\_von(max))), \\
+...
+\end{align*}
+
+\subsection*{Herbrand Interpretation}
+\subsubsection*{D}
+D ist das Herbrand Universum
+
+\subsubsection*{F}
+Die Identitätsfunktion:
+\begin{align*}
+max \rightarrow max, \\
+vater\_von(max) \rightarrow vater\_von(max), \\
+...
+\end{align*}
+\subsubsection*{R}
+weist den Elementen der Herbrand Basis Wahrheitswerte zu:
+\begin{align*}
+verheiratet(max, vater\_von(max)) \rightarrow FALSE, \\
+verheiratet(vater\_von(max), mutter\_von(max)) \rightarrow TRUE, \\
+verheiratet(vater\_von(vater\_von(max)), mutter\_von(vater\_von(max))) \rightarrow TRUE, \\
+...
+\end{align*}
+
+\end{document}	
