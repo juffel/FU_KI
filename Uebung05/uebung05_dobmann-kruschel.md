@@ -38,3 +38,42 @@ die letzten beiden Subsets können wir auch wieder zusammennehmen:
 [Z, g(cat), g(W)] -> [Z/g(cat), g(cat), g(W/cat)]
 
 damit haben wir als MGU: [X/f(dog), T/f(dog), S/f(dog), Z/g(cat), Y/dog, W/cat]
+
+## Aufgabe 2
+
+### a) Warum lässt sich die Klauselmenge S nicht mit Binary Resolution lösen?
+
+um den Term mit Binary Resolution vereinfachen zu können, müsste es Literale geben, die in mehr als einer der Klauseln vorkommen. Da das nicht der Fall ist, können wir ohne Factoring keine Aussagen über die Lösbarkeit der Klauselmenge machen.
+
+### b) Die leere Klausel mit Full Resolution ableiten
+
+wir versuchen, Unifikation in Verbindung mit Binary Resolution so zu betreiben, dass wir nach und nach sämtliche Literale eliminieren können um schließlich zur leeren Klausel zu kommen:
+
+[ p(X) | q(X), ~p(Z) | q(Z)]
+
+ersetzen Z mit X:
+
+[ p(X) | q(X), ~p(X) | q(X)] -> q(X)
+
+-------
+
+[q(X), p(Y) | ~q(Y)]
+
+ersetzen Y mit X:
+
+[q(X), p(X) | ~q(X)] -> p(X)
+
+-------
+
+[~p(U) | ~q(U), p(X)]
+
+ersetzen U mit X:
+
+[~p(X) | ~q(X), p(X)] -> ~q(X)
+
+-------
+
+und schließlich aus der ersten Ersetzung:
+
+[q(X), ~q(X)] -> []
+
