@@ -4,7 +4,7 @@
 ## Aufgabe 1
 ### a) Disagreement Set
 
-das Disagreement Set in diesem Fall besteht aus mehreren subsets, nämlich:
+das Disagreement Set besteht in diesem Fall aus mehreren subsets, nämlich:
 
 {[X, T, f(dogs)], [f(Y), T, S], [Z, g(cat), g(W)], [cat, W]}
 
@@ -81,36 +81,105 @@ und schließlich aus der ersten Ersetzung:
 
 ### a) die jeweiligen Klauselnormalformen:
 
-#### A1) $\forall X(politiker(X) \implies (\forall Y ( knausrig(Y) \implies \neg mag(X, Y)$
+#### A1) $$ \forall X(politiker(X) \implies (\forall Y ( knausrig(Y) \implies \neg mag(X, Y) $$
 
-$\forallX(\neg politiker(X) \vee (\forall Y(\neg knausrig(Y) \vee \neg mag(X, Y))$
+$$ \forall X,Y (\neg politiker(X) \vee (\neg knausrig(Y) \vee \neg mag(X, Y)) $$
 
 Skolemisiert:
 
-$\neg politiker(X) \vee \neg knausrig(Y) \vee \neg mag(X,Y)$
+$$ \neg politiker(X) \vee \neg knausrig(Y) \vee \neg mag(X,Y) $$
 
-#### A2) $\forall X(politiker(X) \implies (\exists Y(firma(Y) \wedge mag(X,Y))))
+KNF:
+
+$$ \{ \neg politiker(Y) \vee \neg knausrig(Y) \vee \neg mag(X,Y)\} $$
+
+#### A2) $$ \forall X(politiker(X) \implies (\exists Y(firma(Y) \wedge mag(X,Y)))) $$
 
 Implikationen entfernen
 
-$\forall X(\neg politiker(X) \vee (\exists Y(firma(Y) \wedge mag(X,Y)))$
+$$ \forall X(\neg politiker(X) \vee (\exists Y(firma(Y) \wedge mag(X,Y))) $$
 
 Exisitenzquantor nach außen gezogen und skolemisiert (Y/f(X):
 
-$\neg politiker(X) \vee (firma(f(X) \wedge mag(X,f(X))))$
+$$ \neg politiker(X) \vee (firma(f(X) \wedge mag(X,f(X)))) $$
 
-Aufgeteilt, um zur KNF zu kommen:
+Aufteilen:
 
-$(\neg politiker(X) \vee firma(f(X))) \wedge (\neg politiker(X) \vee mag(X, f(X)))$
+$$ (\neg politiker(X) \vee firma(f(X))) \wedge (\neg politiker(X) \vee mag(X, f(X))) $$
 
-#### A3) $\exists X (politiker(X))$
+KNF:
+
+$$ \{ \neg politiker(X) \vee firma(f(X)), \neg politiker(X) \vee mag(X, f(X)) \} $$
+
+#### A3) $$ \exists X (politiker(X)) $$
 
 skolemisieren(X/g()):
 
-$politiker(g())$
+$$ politiker(g()) $$
 
-#### B) $\exists X (firma(X) \wedge \neg knausrig(X))$
+KNF:
+
+$$ \{ politiker(g()) \} $$
+
+#### B) $$ \exists X (firma(X) \wedge \neg knausrig(X)) $$
 
 skolemisieren(X/h()):
 
-$firma(h()) \wedge \neg knausrig(h())$
+$$ firma(h()) \wedge \neg knausrig(h()) $$
+
+KNF:
+
+$$ \{ firma(h()), \neg knausrig(h()) \} $$
+
+### b) Beweise $$ (A1 \wedge A2 \wedge A3) \Rightarrow B $$ mit Resolutionsmethode
+
+Negierte Vermutung:
+
+$$ \neg B = \forall X \neg (firma(X) \wedge \neg knausrig(X)) $$
+
+$$ \forall X (\neg firma(X) \vee knausrig(X)) $$
+
+KNF:
+
+$$ \{ \neg firma(X) \vee knausrig(X) \} $$
+
+##### Resolutionsmenge:
+
+$$ \{ \neg politiker(Y) \vee \neg knausrig(Y) \vee \neg mag(X,Y), $$
+
+$$ \neg politiker(X) \vee firma(f(X)), \neg politiker(X) \vee mag(X, f(X)), $$
+
+$$ politiker(g()), $$
+
+$$ firma(h()), \neg knausrig(h()), $$
+
+$$ \neg firma(X) \vee knausrig(X) \} $$
+
+##### Resolutionsableitung:
+Unit Klausel $$ politiker(g()) $$
+
+$$ \{ \neg knausrig(Y) \vee \neg mag(X,Y)), $$
+
+$$ firma(f(X)), $$
+
+$$ mag(X, f(X), $$
+
+$$ firma(h()), \neg knausrig(h()), $$
+
+$$ \neg firma(X) \vee knausrig(X) \} $$
+
+Unit Klausel $$ firma(f(X)) $$
+
+$$ \{ \neg knausrig(Y) \vee \neg mag(X,Y)), $$
+
+$$ mag(X, f(X), $$
+
+$$ knausrig(X) \} $$
+
+Unit Klausel $$ knausrig(X) $$
+
+$$ \{ \neg mag(X,Y)), $$
+
+$$ mag(X, f(X) \} $$
+
+Unit Klausel sowohl positiv als auch negativ Resolutionsmenge daher nicht erfüllbar. Das bedeutet, dass die Vermutung $$ (A1 \wedge A2 \wedge A3) \Rightarrow B $$ bewiesen ist.
