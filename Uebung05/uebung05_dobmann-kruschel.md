@@ -183,3 +183,12 @@ $$ \{ \neg mag(X,Y)), $$
 $$ mag(X, f(X) \} $$
 
 Unit Klausel sowohl positiv als auch negativ Resolutionsmenge daher nicht erfüllbar. Das bedeutet, dass die Vermutung $$ (A1 \wedge A2 \wedge A3) \Rightarrow B $$ bewiesen ist.
+
+## Aufgabe 4
+Den Occurs-Check in SWI-Prolog "aktiviert" man indem man
+
+	unify_with_occurs_check(A, f(A)).
+	
+aufruft.
+
+Der obige Ausdruck wird zu ```false.``` ausgewertet.
