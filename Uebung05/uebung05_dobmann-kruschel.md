@@ -77,3 +77,40 @@ und schließlich aus der ersten Ersetzung:
 
 [q(X), ~q(X)] -> []
 
+## Aufgabe 3
+
+### a) die jeweiligen Klauselnormalformen:
+
+#### A1) $\forall X(politiker(X) \implies (\forall Y ( knausrig(Y) \implies \neg mag(X, Y)$
+
+$\forallX(\neg politiker(X) \vee (\forall Y(\neg knausrig(Y) \vee \neg mag(X, Y))$
+
+Skolemisiert:
+
+$\neg politiker(X) \vee \neg knausrig(Y) \vee \neg mag(X,Y)$
+
+#### A2) $\forall X(politiker(X) \implies (\exists Y(firma(Y) \wedge mag(X,Y))))
+
+Implikationen entfernen
+
+$\forall X(\neg politiker(X) \vee (\exists Y(firma(Y) \wedge mag(X,Y)))$
+
+Exisitenzquantor nach außen gezogen und skolemisiert (Y/f(X):
+
+$\neg politiker(X) \vee (firma(f(X) \wedge mag(X,f(X))))$
+
+Aufgeteilt, um zur KNF zu kommen:
+
+$(\neg politiker(X) \vee firma(f(X))) \wedge (\neg politiker(X) \vee mag(X, f(X)))$
+
+#### A3) $\exists X (politiker(X))$
+
+skolemisieren(X/g()):
+
+$politiker(g())$
+
+#### B) $\exists X (firma(X) \wedge \neg knausrig(X))$
+
+skolemisieren(X/h()):
+
+$firma(h()) \wedge \neg knausrig(h())$
