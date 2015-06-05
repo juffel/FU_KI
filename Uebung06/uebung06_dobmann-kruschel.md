@@ -1,5 +1,6 @@
 # Künstliche Intelligenz - Übung 6
 ### Julian Dobmann, Kai Kruschel
+### 5.6.2015
 
 ## Aufgabe 1
 The two wise men:
@@ -87,7 +88,7 @@ $$ 7: (1.1) \neg \Box P \;\; | \;\; 8: (1.1) \neg \Box Q $$
 
 $$ \;\; 9: (1.1) \Box P \;\; 4(4) \;\;  | \;\;  10: (1.1) \Box Q \;\; 4(5) $$
 
-Tableau ist geschlossen, da in allen Pfaden gegensätzlich Formeln mit gleichem Präfix enthalten sind.
+Tableau ist geschlossen, da in allen Pfaden gegensätzliche Formeln mit gleichem Präfix enthalten sind.
 
 $$ \Rightarrow B $$ ist erfüllbar.
 
@@ -95,12 +96,33 @@ $$ \Rightarrow B $$ ist erfüllbar.
 ### c)
 Beweise $$ C = \Box (P \Rightarrow Q) \vee \Box \neg \Box (\neg Q \Rightarrow \neg P) $$ in Logik S5
 
-$$ 1: (1) \neg (\Box (P \Rightarrow Q) \vee \Box \neg \Box (\neg Q \Rightarrow \neg P)) $$
+$$ 1: \underline{ (1) \neg (\Box (P \Rightarrow Q) \vee \Box \neg \Box (\neg Q \Rightarrow \neg P)) }_{\neg \vee} $$
 
-$$  $$
+$$ 3: (1) \neg \Box (P \Rightarrow Q) $$
 
+$$ 4: (1) \underline{ \neg \Box \neg \Box (\neg Q \Rightarrow \neg P) }_{\neg \Box} $$
 
+$$ 5: \underline{ (1.1) \neg \neg \Box (\neg Q \Rightarrow \neg P) }_{\neg \neg} $$
 
+$$ 6: \underline{ (1.1) \Box (\neg Q \Rightarrow \neg P) }_{4r} $$
+
+$$ 7: \underline{ (1) \Box (\neg Q \Rightarrow \neg P) }_{\Box} $$
+
+$$ 8: \underline{ (1.1) \neg Q \Rightarrow \neg P }_{\Rightarrow} $$
+
+$$ 9: \underline{ (1.1) \neg \neg Q }_{\neg \neg} \;\; | \;\; 10: (1.1) \neg P $$
+
+$$ 11: (1.1) Q \;\; \neg\neg(9) $$
+
+$$ 12: \underline{ (1.2) \neg (P \Rightarrow Q)}_{\neg \Rightarrow} \;\; \neg \Box(3) $$
+
+$$ 13: (1.2) P $$
+
+$$ 14: (1.2) \neg Q $$
+
+Tableau ist geschlossen, da in allen Pfaden gegensätzliche Formeln mit gleichem Präfix enthalten sind.
+
+$$ \Rightarrow C $$ ist erfüllbar.
 
 
 
