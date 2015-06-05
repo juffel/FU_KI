@@ -110,7 +110,7 @@ $$ 7: \underline{ (1) \Box (\neg Q \Rightarrow \neg P) }_{\Box} $$
 
 $$ 8: \underline{ (1.1) \neg Q \Rightarrow \neg P }_{\Rightarrow} $$
 
-$$ 9: \underline{ (1.1) \neg \neg Q }_{\neg \neg} \;\; | \;\; 10: (1.1) \neg P $$
+$$ 9: (1.1) \neg \neg Q \;\; | \;\; 10: (1.1) \neg P $$
 
 $$ 11: (1.1) Q \;\; \neg\neg(9) $$
 
