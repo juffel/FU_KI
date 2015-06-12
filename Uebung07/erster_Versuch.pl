@@ -11,9 +11,21 @@ connected(X, Y):-
 
 
 path(X, Y, P):-
-  connected(X, Y),
-  write([X, Y] | P).
+  path2(X, Y, P, []).
 
-path(X, Y, P):-
-  connected(Z, Y),
-  path(X, Z, [[Z, Y] | P]).
+
+path2(X, _, _, CL):-
+  connected(X, Z),
+  member(Z, CL), !.
+
+path2(X, Y, P, _):-
+  connected(X, Y),
+  write([Y | P]).
+
+path2(X, Y, P, CL):-
+  connected(X, Z),
+  path2(Z, Y, [Z | P], [Z | CL]).
+
+
+allPaths(X, Y, L):-
+  findall(P, path(X, Y, P), L).
