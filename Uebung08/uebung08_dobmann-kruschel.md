@@ -27,3 +27,5 @@ Das Prädikat `solve/1` soll wenigstens Konjunktionen und Disjunktionen selbst b
 	solve(A) :-
 		clause(A, Body),
 		solve(Body).
+
+Dieser Interpreter benutzt nur das Systemprädikat `clause/2`, welches für ein *gültiges* Prädikat den Körper diese Prädikats zurückgibt, und bei ungültigen Prädikaten failt.
