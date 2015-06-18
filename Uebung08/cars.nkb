@@ -1,0 +1,81 @@
+% CARS - a car identification system for use with the native shell
+
+top_goal(X) :- car(X).
+
+type(truck) :-
+  size(big),
+  wheels(6),
+  horn(loud).
+type(van) :-
+  size(medium),
+  wheels(4),
+  horn(pleasant).
+type(car) :-
+  size(small),
+  wheels(4),
+  horn(pleasant).
+type(bicycle) :-
+  size(tiny),
+  wheel(2),
+  horn(ringing),
+  problem(not_a_car).
+type(horse) :-
+  size(small),
+  wheels(0),
+  horn(neighing),
+  problem(not_a_car).
+
+manufacturer(mercedes) :-
+  type(truck),
+  sort(bus),
+  color(yellow).
+manufacturer(vw) :-
+  type(van),
+  space(enough),
+  color(green).
+manufacturer(porsche) :-
+  type(car),
+  sort(sportscar),
+  color(black),
+manufacturer(karl_heinz) :-
+  type(bicycle),
+  sort(rostgurke),
+  color(rost).
+manufacturer(horse) :-
+  type(horse),
+  sort(shetland_pony),
+  color(blonde).
+
+car(136er) :-
+  manufacturer(mercedes),
+  driver(karlotta),
+  passengers(27).
+car(bulli) :-
+  manufacturer(vw),
+  driver(herbert),
+  passengers(14).
+car(klapperkiste) :-
+  manufacturer(karl_heinz)
+  driver(karl_heinz),
+  passengers(1).
+car(karl_heinz) :-
+  manufacturer(horse),
+  personality(friendly),
+  hobby(driving).
+
+size(X) :- ask(size, X).
+wheels(X) :- ask(wheels, X).
+horn(X) :- ask(horn, X).
+problem(X) :- ask(problem, X).
+sort(X) :- ask(sort, X).
+space(X) :- ask(space, X).
+passengers(X) :- ask(passengers, X).
+personality(X) :- ask(personality, X).
+hobby(X) :- ask(hobby, X).
+
+driver(X) :- menuask(driver, X, [karlotta, herbert, karl_heinz]).
+color(X) :- menuask(color, X, [yellow, green, black, rost, blonde]).
+
+multivalued(driver).
+multivalued(personality).
+multivalued(hobby).
