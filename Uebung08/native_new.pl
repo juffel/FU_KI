@@ -43,30 +43,6 @@ solve :-
 solve :-
 	write('No answer found.'),nl.
 
-% new part
-
-%ask((Attribute(X); Attribute(Y)), Value, _) :-
-%	known(yes, Attribute(X), Value);
-%	known(yes, Attribute(Y), Value),
-%	!.
-
-%ask((Attribute(X); Attribute(Y)), Value, _) :-
-%	known(_, Attribute(X), Value),
-%	known(_, Attribute(Y), Value),
-%	!, fail.
-
-	% We can leave out the "not multivalued" part, because these have to be multivalued
-
-%ask((Attribute(X); Attribute(Y)), Value, Hist) :-
-%	write(Attribute(X)),
-%	write(' or '),
-%	write(Attribute(Y)),
-%	write('? (yes or no) '),
-%	get_user(Z, Hist),
-%	asserta(known)
-
-% new part end
-
 ask(Attribute,Value,_) :-
 	known(yes,Attribute,Value),     % succeed if we know its true
 	!.                              % and dont look any further
@@ -144,6 +120,13 @@ process_ans(_,_).
 % a clause.
 
 prove(true,_) :- !.
+
+% augmentation for or-clause support in knowledge database
+prove((Goal;Rest),Hist) :-
+    prove(Goal,[Goal|Hist]);
+    prove(Rest,Hist).
+% end augmentation
+
 prove((Goal,Rest),Hist) :- !,
 	prov(Goal,[Goal|Hist]),
 	prove(Rest,Hist).
