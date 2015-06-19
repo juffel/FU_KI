@@ -74,6 +74,17 @@ Jetzt sind Definitionen folgender Form in der Wissensdatenbank möglich:
 	family(duck),			% different rules for male
 	voice(quack),
 	head(green); head(mottled_brown); head(turquoise).
-	
+
+**Korrektur:**
+
+Tutor: *"War doch nicht so simpel, wie ich gedacht hab..."*
+
+	prove((Goal,Rest),Hist) :- !,
+		prove(Goal,Hist),
+		prove(Rest,Hist).
+	prove((Goal;Rest), Hist) :- !, % in diesem Fall nicht unbedingt notwendig, aber falls Formeln hinzukommen möglicherweise schon  
+		(prove(Goal,Hist);
+		prove(Rest,Hist)).
+
 ### b)
 siehe angehängte Datei `cars.nkb
