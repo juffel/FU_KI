@@ -89,7 +89,7 @@ bird(snow_goose) :-
 bird(mallard) :-
 	family(duck),			% different rules for male
 	voice(quack),
-	head(green); head(mottled_brown); head(rotz).
+	head(green); head(mottled_brown); head(turquoise).
 %bird(mallard) :-
 %   family(duck),			% and female
 %	voice(quack),

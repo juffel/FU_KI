@@ -29,3 +29,32 @@ Das Prädikat `solve/1` soll wenigstens Konjunktionen und Disjunktionen selbst b
 		solve(Body).
 
 Dieser Interpreter benutzt nur das Systemprädikat `clause/2`, welches für ein *gültiges* Prädikat den Körper diese Prädikats zurückgibt, und bei ungültigen Prädikaten failt.
+
+## Aufgabe 1 Expertensysteme/Wissensbasis
+
+### a)
+Um den `;` bzw. Oder-Operator in Wissensdatenbanken zu unterstützen, muss die `prove/2` Klausel erweitert werden, um nicht nur UND-Verknüpfungen, sondern auch ODER-Verknüpfungen zu unterstützen.
+
+	prove(true,_) :- !.
+	
+	% augmentation for or-clause support in knowledge database
+	prove((Goal;Rest),Hist) :-
+    	prove(Goal,[Goal|Hist]);
+    	prove(Rest,Hist).
+	% end augmentation
+	
+	prove((Goal,Rest),Hist) :- !,
+		prov(Goal,[Goal|Hist]),
+		prove(Rest,Hist).
+	prove(Goal,Hist) :-
+		prov(Goal,[Goal|Hist]).
+
+Jetzt sind Definitionen folgender Form in der Wissensdatenbank möglich:
+
+	bird(mallard) :-
+	family(duck),			% different rules for male
+	voice(quack),
+	head(green); head(mottled_brown); head(turquoise).
+	
+### b)
+siehe angehängte Datei `cars.nkb
