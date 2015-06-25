@@ -120,18 +120,17 @@ process_ans(_,_).
 % a clause.
 
 prove(true,_) :- !.
-
-% augmentation for or-clause support in knowledge database
-prove((Goal;Rest),Hist) :-
-    prove(Goal,[Goal|Hist]);
-    prove(Rest,Hist).
-% end augmentation
-
 prove((Goal,Rest),Hist) :- !,
 	prov(Goal,[Goal|Hist]),
 	prove(Rest,Hist).
 prove(Goal,Hist) :-
 	prov(Goal,[Goal|Hist]).
+
+% augmentation for or-clause support in knowledge database
+prove((Goal;Rest),Hist) :- !, % <- der Cut ist wichtig, damit nach dem Matchen dieser Regel keine anderen (wie z.B. die Regel prove(Goal,Hist)) Regeln mehr betreten werden.
+    (prove(Goal,Hist);
+    prove(Rest,Hist)).
+% end augmentation
 
 prov(true,_) :- !.
 prov(menuask(X,Y,Z),Hist) :- menuask(X,Y,Z,Hist), !.
