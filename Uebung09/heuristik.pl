@@ -17,7 +17,7 @@ heuristik([X],[Z],N) :-
 
 heuristik([Xh|X],[Zh|Z],N) :-
     (Xh == Zh),!, heuristik(X,Z,N);
-    (Xh \= Zh), heuristik(X,Z,N-1).
+    (Xh \= Zh), heuristik(X,Z,Cnt), N is Cnt+1.
 
 %Kai's Idee:
 

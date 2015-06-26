@@ -37,20 +37,17 @@ heuristik([Xh|X],[Zh|Z],N) :-
     (Xh == Zh),!, heuristik(X,Z,N);
     (Xh \= Zh), heuristik(X,Z,N-1).
 ```
-Leider erkennt dieses Prädikat nur Unterschiede im letzten Element der übergebenen Zustandsliste:
+Beispiele:
 
 ```
-?- heuristik([1,2,3],[1,2,3],N). 
+?- heuristik([1,2,3,4,5,6,7,8,b],[1,2,3,4,5,6,7,8,b],N).
 N = 0.
 
-?- heuristik([1,2,3],[1,2,4],N).
-N = 1 ;
+?- heuristik([1,2,3,4,5,6,7,8,b],[1,2,3,4,5,6,7,b,8],N).
+N = 2 ;
 false.
-```
 
-Bei Anderen Unterschieden (z.B. erstes Element der Liste unterschiedlich) wird leider nur `false` zurückgegeben.
-
-```
-?- heuristik([1,2,3],[3,2,3],N).
+?- heuristik([1,2,3,4,5,6,7,8,b],[1,2,4,3,5,6,7,b,8],N).
+N = 4 ;
 false.
 ```
