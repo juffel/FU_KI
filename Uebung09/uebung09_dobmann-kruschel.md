@@ -58,6 +58,22 @@ Var is (Count - Len)
 noch nicht instantiiert worden ist und eine Unifikation daher nicht durchgeführt werden kann.
 Wie man das Problem beheben kann ist uns leider nicht klar.
 
+### b)
+Die Tiefensuche lässt sich leicht aus der Breitensuche ableiten, es muss lediglich die Reihung der übrigen zu prüfenden Knoten verändert werden.
+
+Konkret heißt das bei unserer Lösung, dass Zeile 21
+
+```
+    append(Pfade,GefundenePfade,NeuePfade),
+```
+
+verändert wird zu
+
+```
+    append(GefundenePfade,Pfade,NeuePfade),
+```
+wodurch das Kopf-Element `PfadN` der Liste `NeuePfade` das erste Element der Liste `GefundenePfade` ist, also die neu gefundenen Pfade zuerst weiterverfolgt werden, wie das bei einer Tiefensuche halt so ist.
+
 ## Aufgabe 2 A*
 ### a)
 
