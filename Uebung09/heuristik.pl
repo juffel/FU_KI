@@ -5,14 +5,30 @@
 
 % der Abstand zweier ein-elementiger Listen ist 0, wenn sie das gleiche
 % Element enthalten, und 1 wenn sie unterschiedliche Elemente enthalten
+
 heuristik([X],[Z],N) :-
     (X == Z),!, N is 0;
     (X \= Z), N is 1.
+
 % der Abstand zweier mehr-elementiger Listen mit gleichem Head ist
 % 0 + Abstand der Restlisten
-% der Absatnd zweier mehr-elementiger Listen mit verschiedenem Head
+% der Abstand zweier mehr-elementiger Listen mit verschiedenem Head
 % ist 1 + Abstand der Restlisten
+
 heuristik([Xh|X],[Zh|Z],N) :-
     (Xh == Zh),!, heuristik(X,Z,N);
     (Xh \= Zh), heuristik(X,Z,N-1).
 
+%Kai's Idee:
+
+heuristikKai([X], [Z], N) :-
+  (X == Z), !, N is N;
+  (X \= Z), N is (N + 1).
+
+heuristikKai([X | Xs], [Z | Zs], 0) :-
+  (X == Z), !, heuristik(Xs, Zs, 0);
+  (X \= Z), heuristik(Xs, Zs, 1).
+
+heuristikKai([X | Xs], [Z | Zs], N) :-
+  (X == Z), !, heuristik(Xs, Zs, N);
+  (X \= Z), heuristik(Xs, Zs, N+1).
