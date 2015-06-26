@@ -1,8 +1,16 @@
 # Künstliche Intelligenz - Übung 9
 ### Julian Dobmann, Kai Kruschel
 
-## Aufgabe 1
+## Aufgabe 1 Tiefensuche/Breitensuche
 ### a)
+
+```
+% kinder(X,L)
+kinder(X,L) :-
+    findall(P, move(X,P),L).
+```
+### b)
+
 
 ## Aufgabe 2 A*
 ### a)
