@@ -1,0 +1,35 @@
+% BIRDS - a sample bird identification system for use with the
+% CF shell.
+
+% top_goal where CF starts the inference.
+
+top_goal(X) :- bird(X).
+
+rule(1,50,bird(duck)) :-
+	ask(voice(quack)).
+rule(2,50,bird(duck)) :-
+	ask(color(brown)).
+rule(3,80,bird(duck)) :-
+	ask(voice(quock)),
+	ask(color(grey)).
+rule(5,70,bird(swan)) :-
+	ask(color(white)).
+rule(6,50,bird(swan)) :-
+	rule(_,_,voice(loud_trumpeting)),
+	ask(color(grey)).
+rule(7,100,voice(loud_trumpeting)) :-
+	ask(voice(loud)),
+	ask(voice(trumpeting)).
+
+
+
+
+
+
+
+
+
+
+
+
+
