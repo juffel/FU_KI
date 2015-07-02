@@ -111,14 +111,20 @@ update(ID,Goal,CF,NewCF) :-
 update(ID,Goal,CF,CF) :-
 	asserta(known(Goal,CF,[ID])).
 
+% set a CF based on a rule, Threshhold is CF 20. If it's lower, than Adjusted CF is 0 (don't know).
+algebra1(RuleCF, CF, AdjustedCF) :-
+  CF >= 20,
+  AdjustedCF is RuleCF.
 
 algebra1(RuleCF, CF, AdjustedCF) :-
-.
+  AdjustedCF is 0.
 
+% combine different CFs. I doubt this is correct like this though.
 algebra2(CF, RestCF, NewCF) :-
-.
+  algebra3(CF, RestCF, NewCF).
 
 
+% update the known CF
 algebra3(CF, OldCF, NewCF) :-
   CF > 0, OldCF > 0,
   X is (CF + OldCF*(100 - CF)/100),
@@ -129,6 +135,7 @@ algebra3(CF, OldCF, NewCF) :-
   X is -(-CF - OldCF *(100 + CF)/100),
   int_round(X, NewCF).
 
+% does not divide by 0, because the one of the Values has to be < 100
 algebra3(CF, OldCF, NewCF) :-
   (CF < 0; OldCF < 0); (CF > 0; OldCF > 0),
   abs_minimum(CF, OldCF, MinCF),
