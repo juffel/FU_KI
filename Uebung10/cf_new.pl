@@ -117,9 +117,9 @@ algebra1(RuleCF, CF, AdjustedCF) :-
   AdjustedCF is RuleCF.
 
 algebra1(RuleCF, CF, AdjustedCF) :-
-  AdjustedCF is 0.
+  fail.
 
-% combine different CFs. I doubt this is correct like this though.
+% combine different CFs. I doubt this is correct like that though.
 algebra2(CF, RestCF, NewCF) :-
   algebra3(CF, RestCF, NewCF).
 
