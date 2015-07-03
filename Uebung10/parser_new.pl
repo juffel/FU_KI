@@ -1,17 +1,14 @@
 test(X) :- expr(X,"1.3*23+(-4)*(8+5)",[]).
 % add(mul(1.3, 23), mul(-4, add(8, 5)))
 
+
 expr(X)     --> "(", expr(X), ")". % new
 
-expr(add(mul(Y,Z), A)) --> term(Y), "*", term(Z), "+", expr(A).
+expr(add(mul(Y,Z), A)) --> term(Y), "*", term(Z), "+", expr(A). % new
 
 expr(mul(Y, Z)) --> term(Y), "*", expr(Z). % new
 
 expr(add(Y,Z)) --> term(Y), "+", expr(Z).
-
-% new part with mul
-%expr(add(mul(A,B),C)) --> expr(A), "*", expr(B), "+", expr(C).
-%expr(add(A,mul(B,C))) --> expr(A), "+", expr(B), "*", expr(C).
 
 
 expr(X)     --> term(X).
