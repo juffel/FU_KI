@@ -135,7 +135,7 @@ algebra3(CF, OldCF, NewCF) :-
   X is -(-CF - OldCF *(100 + CF)/100),
   int_round(X, NewCF).
 
-% does not divide by 0, because the one of the Values has to be < 100
+% does not divide by 0, because one of the Values has to be < 100
 algebra3(CF, OldCF, NewCF) :-
   (CF < 0; OldCF < 0); (CF > 0; OldCF > 0),
   abs_minimum(CF, OldCF, MinCF),

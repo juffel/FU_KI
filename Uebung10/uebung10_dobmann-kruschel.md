@@ -19,3 +19,43 @@ Um die Bindungsstärke der Operatoren `+` und `*` korrekt zu berücksichtigen, w
 ```
 
 ## Aufgabe 2
+### Algebra 1
+`algebra1/3` wird verwendet, um die Unsicherheitsschwelle von 20 umzusetzen. Das heißt für alle Regeln in der Datenbank, deren CF < 20 ist, wird der CF als 0 interpretiert.
+Das wird folgendermaßen erreicht:
+
+```
+algebra1(RuleCF, CF, AdjustedCF) :-
+  CF >= 20,
+  AdjustedCF is RuleCF.
+
+algebra1(RuleCF, CF, AdjustedCF) :-
+  fail.
+```
+Für den Fall, dass CF kleiner ist als 20 failt algebra1 einfach und prov als Konsequenz davon auch.
+
+### Algebra 2
+`algebra2/3` wird verwendet, um ?
+
+### Algebra 3
+`algebra3/3` wird verwendet, um aus zwei bestehenden Regeln mit gleichem Goal und unterschiedlichen CFs eine einzelne Regel abzuleiten.
+
+```
+% update the known CF
+algebra3(CF, OldCF, NewCF) :-
+  CF > 0, OldCF > 0,
+  X is (CF + OldCF*(100 - CF)/100),
+  int_round(X, NewCF).
+
+algebra3(CF, OldCF, NewCF) :-
+  CF < 0, OldCF < 0,
+  X is -(-CF - OldCF *(100 + CF)/100),
+  int_round(X, NewCF).
+
+% does not divide by 0, because one of the Values has to be < 100
+algebra3(CF, OldCF, NewCF) :-
+  (CF < 0; OldCF < 0); (CF > 0; OldCF > 0),
+  abs_minimum(CF, OldCF, MinCF),
+  X is (100 * (CF + OldCF) / (100 - MinCF)),
+  int_round(X, NewCF).
+```
+
