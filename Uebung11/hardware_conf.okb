@@ -1,0 +1,15 @@
+initial_data([
+    goal(configure_hardware),
+    not_ended_yet,
+    legal_component_types([
+        cpu,
+        mainboard,
+        graphics_card,
+        harddrive
+    ])
+]).
+
+rule 1:
+    [1: goal(configure_hardware),
+     2: ].
+
