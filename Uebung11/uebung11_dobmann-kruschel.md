@@ -20,4 +20,5 @@ Backward Chaining ist besonders geeignet, in einem Szenario wo man bereits das Z
 Forward Chaining ist in *datengetriebenen* Szenarien besser geeignet, ausgehend von der Wissensbasis wird durch die Verkettung von Inferenzen eine Folgerung entwickelt. Im Gegensatz zu Backward Chaining eignet sich Forward Chaining für Szenarien in denen die Anzahl der Ziele sehr hoch ist.
 Ein Beispiel für ein solches Szenario wäre die Suche nach einer besten Lösung, bzw. einer Konfiguration (die im Vergleich zu anderen Konfigurationen) besondere Eigenschaften aufweist. Um so eine Konfiguration zu finden, müssten mit Backward chaining alle *möglichen* Konfiguarationen **einzeln** durchprobiert werden.
 
-## Aufgabe 2 Produktionssysteme	
+
+## Aufgabe 2 Produktionssysteme
