@@ -1,0 +1,44 @@
+Künstliche Intelligenz - Übung 11
+
+Aufgabe 1 Forward Chaining
+a)
+Forward Chaining:
+	
+	1. Schritt:
+	Aus den Fakten:
+	Tweety chirps 
+	Tweety sings
+
+	folgt die Konsequenz aus der ersten Regel:
+	Tweety is a canary
+
+Damit ist mit Forward Chaining bewiesen, dass Tweety ein Kanrienvogel ist.
+
+b)
+Backward Chaining:
+
+	1. Schritt: 
+	If X chirps and sings - Then X is a canary
+
+	Da die Voraussetzung für den canary lautet: X chirps and X sings
+	Daher müssen wir im nächsten Schritt die beiden Aussagen beweisen:
+	X chirps
+	X sing
+
+	2. Schritt:
+	Da die beiden Aussagen als Fakten existieren:
+	Tweety chirps
+	Tweety sings
+	folgt daraus sofort: -> Tweety ist ein Kanarienvogel
+
+Damit ist mit Backwards Chaining bewiesen, dass Tweety ein Kanarienvogel ist.
+
+c)
+Backward Chaining ist besonders geeignet, in einem Szenario wo man bereits das Ziel (also die zu beweisende Aussage) kennt und lediglich einen Weg finden möchte, diese Aussage zu beweisen. Das ist klassischerweise der Fall, wenn man aufgrund einer Wissensbasis eine im vorhinein festgelegte Aussage beweisen möchte. Backward Chaining lässt sich nur dann effektiv einsetzen, wenn die Anzahl der Ziele überschaubar ist, da für jedes einzelne Ziel der Findungsprozess komplett durchlaufen wird.
+
+Bei Forward Chaining handelt es sich um ein dynamisches, datengesteuertes Verfahren. Aus allen verfügbaren Fakten und passenden Regeln werden neue erzeugt, die wieder ausgewertet werden usw. bis man letzlich sein Ziel bewiesen hat. Dadurch hat man einen großen Anstieg des Wissens in der Wissensdatenbank, wobei auch Fakten und Regeln erschlossen werden, die für den Beweis des Ziels eigentlich nicht nötig sind.
+Dies ist eventuell ineffektiv, kann aber auch praktisch sein, in Anwendungen, wo man noch nicht so genau weiß aus was sich was entwickeln kann oder die Ziele noch nicht klar bestimmt werden können. Letztlich kann das System sehr gut auf neue Daten/Fakten reagieren, die auch während des Beweisvorganges hinzugekommen. Im Gegensatz zu Backward Chaining eignet sich Forward Chaining also für Szenarien in denen die Anzahl der Ziele sehr hoch ist oder Daten dynamisch hinzugefügt werden.
+Ein Beispiel für ein solches Szenario wäre die Suche nach einer besten Lösung, bzw. einer Konfiguration (die im Vergleich zu anderen Konfigurationen) besondere Eigenschaften aufweist. Um so eine Konfiguration zu finden, müssten mit Backward chaining alle *möglichen* Konfiguarationen **einzeln** durchprobiert werden. Zum Beweisen eines einzelnen Aussage ist Forward Chaining meistens weniger effektiv als Backward Chaining, da immer alle Regeln, die auf die Daten anwendbar sind, ausgewertet werden.
+
+
+
